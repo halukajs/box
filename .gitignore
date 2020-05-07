@@ -1,0 +1,6 @@
+node_modules
+coverage
+.vscode
+*.lock
+package-lock.json
+test-report.html
