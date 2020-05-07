@@ -1,0 +1,40 @@
+{
+  "name": "@haluka/box",
+  "version": "1.0.0-1",
+  "description": "A very lightweight dependency injector and container.",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halukajs/box.git"
+  },
+  "author": "Robin Panta <hacktivistic@gmail.com>",
+  "homepage": "https://haluka.dev/box",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/halukajs/box/issues"
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "haluka",
+    "haluka.js",
+    "halukajs",
+    "web",
+    "framework",
+    "container",
+    "dependency",
+    "injection",
+    "ioc"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
