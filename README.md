@@ -14,7 +14,7 @@
 
 
 **Haluka Box** is a dependency injector and container used by Haluka framework (but can be used independently or with any other frameworks).
-If you are using any other framework bandut find this module useful, check out [haluka](https://haluka.dev) – they are like a gem together.
+If you are using any other framework and find this module useful, check out [haluka](https://haluka.dev) – they are like a gem together.
 
 ## Installation
 Installation of Haluka Box is fairy easy. It can be installed from `npm` by:
@@ -24,7 +24,7 @@ npm install @haluka/box
 
 ## Documentation
 
-Checkout [Haluka](https://haluka.dev/box) site for documentation and examples.
+Checkout [Haluka Box](https://haluka.dev/box) site for documentation and examples.
 
 ## License
 
@@ -43,5 +43,5 @@ Crafted with ❤️ by [Robin Panta](https://github.com/hacktivistic).
 [downloads]: https://img.shields.io/npm/dt/@haluka/box.svg
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg?style=badge
 [license-link]: https://opensource.org/licenses/MIT
-[ci-image]:
+[ci-image]: https://circleci.com/gh/halukajs/haluka-cli.svg?style=svg&circle-token=856f68b7734beb7a7ae1428a1fe6adabef339bbc
 [ci-link]: https://circleci.com/gh/halukajs/box
