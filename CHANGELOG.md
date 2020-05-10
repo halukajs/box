@@ -11,7 +11,9 @@
 - Add globalization (Expose global variables)
 
 
-## Unreleased
+## Version 1.0.2
+Released 2020-05-11
+
 - Added UnboundInjectionError if requested param not available
 - Added InvalidContentError if a valid content is not provided during registration
 - Fixed priority of Injection
