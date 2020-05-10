@@ -28,7 +28,7 @@ Checkout [Haluka Box](https://haluka.dev/box) site for documentation and example
 
 ## License
 
-Licensed under [MIT License](license-link).
+Licensed under [MIT License](LICENSE).
 
 ## Author
 
