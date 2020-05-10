@@ -46,21 +46,20 @@ class Container {
 		this._instances.set(provider, instance)
 	}
 
-	resolve (name, opts = null) {
+	resolve (name, opts = {}) {
 		let provider = this._resolveAlias(name)
 
 		if (this._instances.has(provider))
 			return this._instances.get(provider)
 
-		if (!provider) throw new BindingResolutionError(name)
 		provider = this._providers.get(provider)
-
-		if (!this.registered(provider.provider)) {
-			throw new BindingResolutionError(name)
-		}
+		if (!provider) throw new BindingResolutionError(name)
 
 		const Content = provider.content
-		const resolution = !isClass(Content) ? Content(this, opts || provider.opts || {}) : this._manufacture(Content, opts || provider.opts || {})
+		if (typeof(Content) !== 'function') throw new InvalidContentError(name)
+
+		const injectParams = Object.assign({}, provider.opts, opts)
+		const resolution = !isClass(Content) ? Content(this, injectParams) : this._manufacture(Content, opts, provider.opts)
 
 		if (provider.singleton == true) {
 			this.save(provider.provider, resolution)
@@ -92,10 +91,20 @@ class Container {
 		return name
 	}
 
-	_manufacture (ContentClass, opts) {
-		const injector = new Proxy(opts, { get: (target, prop) => {
-			if (!(prop in opts)) return this.resolve(prop)
-			else return opts[prop]
+	_manufacture (ContentClass, opts, providerOpts = {}) {
+		const injector = new Proxy({} , {
+			get: (target, prop) => {
+
+				if (prop in opts) {
+					return opts[prop]
+				} else if (this.registered(prop)) {
+					return this.resolve(prop)
+				} else if (prop in providerOpts) {
+					return providerOpts[prop]
+				} else {
+					throw new UnboundInjectionError(prop)
+				}
+
 		}})
 		return new ContentClass(injector)
 	}
@@ -117,6 +126,18 @@ class Throwable extends Error {
 class BindingResolutionError extends Throwable {
 	constructor (provider) {
 		super(`Provider [${provider}] is not registered.`)
+	}
+}
+
+class InvalidContentError extends Throwable {
+	constructor (provider) {
+		super(`Content for provider [${provider}] is not a valid function or class.`)
+	}
+}
+
+class UnboundInjectionError extends Throwable {
+	constructor (provider) {
+		super(`Unable to inject provider [${provider}]. Not available.`)
 	}
 }
 
