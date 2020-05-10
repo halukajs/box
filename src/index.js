@@ -105,7 +105,7 @@ class Container {
 					throw new UnboundInjectionError(prop)
 				}
 
-		}})
+			}})
 		return new ContentClass(injector)
 	}
 
