@@ -43,6 +43,25 @@ describe('Container', () => {
 		expect(c.resolve('test')).toBe('i was called')
 	})
 
+	test('throws error when injection unavailable in Class', () => {
+
+		const c = new Container()
+
+		const TestClass = class {
+			constructor ({ idontexist }) {
+				//
+			}
+		}
+
+		c.register({
+			provider: 'test',
+			content: TestClass
+		})
+
+		expect(() => c.test).toThrow('Unable to inject provider [idontexist]. Not available.')
+
+
+	})
 
 	test('resolution options override binding options', () => {
 
