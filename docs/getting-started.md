@@ -32,7 +32,7 @@ From jsDelivr:
 
 The concept behind using containers is to store and assemble components into a cohesive application. So, the state of your components are stored in the container.
 
-The components are resistered and resolved in a Container object. The dependencies of the component, if already registered, gets injected automatically. For injection to work, there shall be single parameter in the constructor or, constructor parameters shall be destructured. 
+The components are resistered and resolved in a Container object. The dependencies of the component, if already registered, gets injected automatically. For injection to work, there shall be single parameter in the constructor or, constructor parameters shall be destructured.
 
 That's it.
 
@@ -49,7 +49,7 @@ const box = new Container();
  **/
 class Chicken {
 
-    container () {  
+    container () {
         // Cook Tasty Chicken
     }
 
@@ -67,11 +67,11 @@ let chicken = box.resolve('chicken')
 console.log(box.chicken.tasty())  // Output: true
 
 ```
-This is just a basic usage of Boxa Need more Power? See below, to see example of dependency injection.
+This is just a basic usage of Box. Need more Power? We got you! See the example given below for dependency injection.
 
 ## Dependency Injection
 
-To see dependency injection in action, lets suppose our `Chicken` has two dependencies `Spices` and `Onions`.
+To see dependency injection in action, let's suppose our `Chicken` has two dependencies `Spices` and `Onions`.
 
 ```js
 class Spices{
