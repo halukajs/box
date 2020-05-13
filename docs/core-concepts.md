@@ -5,7 +5,7 @@
 
 ## Overview
 
-This guide covers the concept of registering the components (and/or dependencies) and different ways of doing it along with their resolutions. 
+This guide covers the concept of registering the components (and/or dependencies) and different ways of doing it along with their resolutions.
 
 ## Registration
 
@@ -39,20 +39,20 @@ box.singleton('http', function (box, opts) {
 
 ### Registration with BindingOptions
 
-We can register a binding with BindingOptions by: 
+We can register a binding with BindingOptions by:
 ```js
 box.register(BindingOptions)
 ```
-`BindingOptions` is an object that contains the binding options for a registration. It should has the following properties:
+`BindingOptions` is an object that contains the binding options for a registration. It should have the following properties:
 *   **provider** : It contains the name of the component to be registered. It can be `string` or `object`.
     *   **name** : Name of the provider
     *   **alias** : Any alias to be set for the provider. (For more about alias, see [Aliasing](/box/docs/other-concepts#aliasing) section.)
 
 *   **content** : It is the content that is to be registered within the provider. It may be a `Function` or a `Class`.
 
-*   **singleton** : *(Optional)* It specifies whether the instance will persist the instance when first resolved and return the same instance on subsequent resolutions. It takes a `boolean`. Default is `false`. 
+*   **singleton** : *(Optional)* It specifies whether the instance will persist the instance when first resolved and returns the same instance on subsequent resolutions. It takes a `boolean`. Default is `false`.
 
-*   **opts** : *(Optional)* It is the default resolution options. (For more about opts, see [Options](/box/docs/other-concepts#resolutionoptions) part.)
+*   **opts** : *(Optional)* It is the default resolution options. (For more about opts, see [Injections from Binding Options](/box/docs/other-concepts#injectionfrombindingoptions) part.)
 
 
 
@@ -85,11 +85,11 @@ Example 3:
         alias: 'db',
     },
     content: function (box, opts) {
-        return new Database({ connString: opts.connString }) 
+        return new Database({ connString: opts.connString })
     },
     singleton: true, // When 'Database' is resolved, a single instance persists on every resolution
     opts: {
-        connString: 'Your connection string' // default connString to be used.  
+        connString: 'Your connection string' // default connString to be used.
     }
 }
 ```
@@ -128,16 +128,16 @@ let app = box.app  // Where, app is a provider name or an alias
 
 ### Injection from BindingOptions
 
-If some registrations dependencies' are not resolvable from container or in any case aren't registered into the container, container tries to inject them from the `opts` property of the `BindingOptions` for that registration.
+If some registrations' dependencies are not resolvable from container or in any case aren't registered into the container, container tries to inject them from the `opts` property of the `BindingOptions` for that registration.
 
 ```js
 box.register({
     provider: 'db',
     content: function (box, opts) {
-        return new Database({ connString: opts.connString }) 
+        return new Database({ connString: opts.connString })
     },
     opts: {
-        connString: 'The default connection string' // default connString to be used.  
+        connString: 'The default connection string' // default connString to be used.
     }
 }
 ```
@@ -150,9 +150,9 @@ The dependency provided in <code>opts</code> property of <code>BindingOptions</c
 
 ### Automatic Injection
 
-When resolving, the container automatically resolves the dependencies and pass them into content function or Class. The name (or alias) shall be the same for auto-injection to happen.
+When resolving, the container automatically resolves the dependencies and passes them into content function or Class. The name (or alias) shall be the same for auto-injection to happen.
 
-Injection works by passing the revealing a Proxy to the content functions or constructors, which looks like a regular object but has a `get` handler that resolves from the container.
+Injection works by revealing a Proxy to the content functions or constructors which looks like a regular object but has a `get` handler that resolves from the container.
 
 For example: If a class, suppose Database, has a dependency of `connString`, and connString is registered, it is auto injected into the content function or constructor:
 
@@ -180,7 +180,7 @@ This has the highest priority in injecting of the dependencies among the three w
 
 ### Priority of Injection
 
-Below is the summary of priority on which injection is done : 
+Below is the summary of priority on which injection is done :
 
 *   1) Resolution Options
 *   2) Auto-injection from Container
