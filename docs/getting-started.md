@@ -64,7 +64,7 @@ box.register('chicken', Chicken);
 let chicken = box.resolve('chicken')
 
 // Or, instance of chicken can now directly be accesed as a property too.
-console.log(box.chicken.tasty())  // Output: true
+console.log(box.chicken.isTasty())  // Output: true
 
 ```
 This is just a basic usage of Box. Need more Power? We got you! See the example given below for dependency injection.
