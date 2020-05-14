@@ -77,9 +77,12 @@ describe('Container', () => {
 			provider: 'test',
 			content: TestClass,
 			opts: {
-				someargs: "Solo"
+				someargs: "Solo",
+				namaewa: "Luffy",
 			}
 		})
+
+		expect(c.test.value).toBe('LuffySolo')
 
 		c.save('namaewa', "Tester")
 
