@@ -25,16 +25,31 @@ class Container {
 
 	register (opts) {
 
-		opts.provider = this._provider(opts.provider)
+		let bindOpts = {}
+		if (arguments.length > 1) {
+			bindOpts.provider = arguments[0]
+			bindOpts.content = arguments[1]
+			if (typeof(arguments[2]) == "boolean") {
+				bindOpts.singleton = arguments[2]
+			}
+		} else {
+			bindOpts = opts
+		}
 
-		this._providers.set(opts.provider, opts)
-		if (opts.opts !== undefined)
-			this._options.set(opts.provider, opts.opts)
+		bindOpts.provider = this._provider(bindOpts.provider)
+
+		this._providers.set(bindOpts.provider, bindOpts)
+		if (bindOpts.opts !== undefined)
+			this._options.set(bindOpts.provider, bindOpts.opts)
 
 	}
 
 	bind () {
 		return this.register(...arguments)
+	}
+
+	singleton (provider, content) {
+		return this.register(provider, content, true)
 	}
 
 	registered (name) {

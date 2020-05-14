@@ -117,7 +117,7 @@ describe('Container', () => {
         expect(c.test).toBe('i was called')
 	})
 
-	test('save and resolve the instance', () => {
+	test('saves and resolves the instance', () => {
 		const c = new Container()
 
 		const myObj = {
@@ -129,4 +129,21 @@ describe('Container', () => {
 		expect(c.use('fun').something).toBe('Fun is going on')
 	})
 
+	//
+	test('registers the provider with overloaded method', () => {
+		const c = new Container()
+
+		c.register('http', function (c, o) {
+			return 'Happy'
+		})
+
+	})
+
+	test('registers provider as singleton', () => {
+		const c = new Container()
+
+		c.singleton('single', class { })
+
+		c.single
+	})
 })
