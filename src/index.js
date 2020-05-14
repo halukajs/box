@@ -77,8 +77,7 @@ class Container {
 		const Content = provider.content
 		if (typeof(Content) !== 'function') throw new InvalidContentError(name)
 
-		const injectParams = Object.assign({}, provider.opts, opts)
-		const resolution = !isClass(Content) ? Content(this, injectParams) : this._manufacture(Content, opts, provider.opts)
+		const resolution = this._manufacture(Content, opts, provider.opts)
 
 		if (provider.singleton == true) {
 			this.save(provider.provider, resolution)
@@ -110,10 +109,9 @@ class Container {
 		return name
 	}
 
-	_manufacture (ContentClass, opts, providerOpts = {}) {
-		const injector = new Proxy({} , {
+	_manufacture (Content, opts, providerOpts = {}) {
+		const injector = new Proxy(Object.assign({}, providerOpts, opts) , {
 			get: (target, prop) => {
-
 				if (prop in opts) {
 					return opts[prop]
 				} else if (this.registered(prop) || this.saved(prop)) {
@@ -125,7 +123,8 @@ class Container {
 				}
 
 			}})
-		return new ContentClass(injector)
+
+		return !isClass(Content) ? Content(this, injector) : new Content(injector)
 	}
 
 }
@@ -181,3 +180,5 @@ function proxify (container) {
 
 exports.Container = Container
 exports.BindingResolutionError = BindingResolutionError
+exports.InvalidContentError = InvalidContentError
+exports.UnboundInjectionError = UnboundInjectionError
