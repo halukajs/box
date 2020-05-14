@@ -63,6 +63,36 @@ describe('Container', () => {
 
 	})
 
+	test('resolves registered Class', () => {
+
+		const c = new Container()
+
+		const TestClass = class {
+			constructor ({ namaewa, someargs }) {
+				this.value = namaewa + someargs
+			}
+		}
+
+		c.register({
+			provider: 'test',
+			content: TestClass,
+			opts: {
+				someargs: "Solo"
+			}
+		})
+
+		c.save('namaewa', "Tester")
+
+		let t1 = c.resolve('test', { namaewa: 'Robin' })
+		let t2 = c.test
+
+		expect(t1.value).toBe('RobinSolo')
+		expect(t2.value).toBe('TesterSolo')
+
+		expect(t1).not.toEqual(t2)
+
+	})
+
 	test('resolution options override binding options', () => {
 
 		const c = new Container()
