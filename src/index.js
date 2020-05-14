@@ -46,10 +46,14 @@ class Container {
 		this._instances.set(provider, instance)
 	}
 
+	saved (name) {
+		return this._instances.has(name)
+	}
+
 	resolve (name, opts = {}) {
 		let provider = this._resolveAlias(name)
 
-		if (this._instances.has(provider))
+		if (this.saved(provider))
 			return this._instances.get(provider)
 
 		provider = this._providers.get(provider)
@@ -97,7 +101,7 @@ class Container {
 
 				if (prop in opts) {
 					return opts[prop]
-				} else if (this.registered(prop)) {
+				} else if (this.registered(prop) || this.saved(prop)) {
 					return this.resolve(prop)
 				} else if (prop in providerOpts) {
 					return providerOpts[prop]
