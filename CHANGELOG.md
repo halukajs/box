@@ -1,15 +1,17 @@
 # Changelog
 
 ## Planned
-- Add singleton method
-- Add method overrides for register
-- Add injection into Functions
 - Add Contextual Binding
 - Add Auto-Loading Modules & Auto Registering
 - Add Disposal methods and disposal events
 - Add extending registrations
 - Add globalization (Expose global variables)
 
+## Unreleased
+- Add method overloading for register
+- Add singleton method
+- Add injection into Functions
+- Fixed non-injection of instances saved via save()
 
 ## Version 1.0.2
 Released 2020-05-11
