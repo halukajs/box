@@ -7,7 +7,9 @@
 - Add extending registrations
 - Add globalization (Expose global variables)
 
-## Unreleased
+## Version 1.1.0
+Released 2020-05-14
+
 - Add method overloading for register
 - Add singleton method
 - Add injection into Functions
