@@ -4,7 +4,7 @@
 
 First off, thank you for considering contributing to Box. It's people like you that make Box such a great tool.
 
-Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
+Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open-source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
 ## Where do I go from here?
 
@@ -37,7 +37,7 @@ yarn install
 Now you'll be able to run test suites by running:
 ```bash
 npm test
-#or, 
+#or,
 yarn test
 ```
 

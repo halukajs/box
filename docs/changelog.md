@@ -1,6 +1,6 @@
 ## Versioning Scheme
 
-Haluka and it's other first-party packages, including Box, follow [Semantic Versioning](https://semver.org/).
+Haluka and its other first-party packages, including Box, follow [Semantic Versioning](https://semver.org/).
 
 ## Changelog
 
