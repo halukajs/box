@@ -14,9 +14,29 @@ export declare class Container {
     public register (opts: IBindingOptions): void
 
     /**
+     * Registeres the provider
+     * @param provider Provider which is to be registered
+     * @param content Content to be registered for the provider
+     * @param singleton Whether to register the provider as singleton
+     */
+    public register (provider: string, content: Function, singleton: Boolean)
+
+    /**
      * @alias register()
      */
     public bind (opts: IBindingOptions): void
+
+    /**
+     * @alias register()
+     */
+    public bind (provider: string, content: Function,  singleton: Boolean)
+
+    /**
+     * Registers the provider as singleton
+     * @param provider Provider which is to be registered
+     * @param content Content to be registered for the provider
+     */
+    public singleton (provider: string, content: Function)
 
     /**
      * Returns whether the provider is already registered
@@ -30,6 +50,12 @@ export declare class Container {
      * @param instance The instance to be stored
      */
     public save (provider: IProvider, instance: any): void
+
+    /**
+     * Returns whether the provider is already saved
+     * @param name Name of the provider
+     */
+    public saved (name: string): boolean
 
     /**
      * Resolves the provider
@@ -59,7 +85,7 @@ export declare interface IBindingOptions {
     /**
      * Content to be registered for the provider
      */
-    content: ClassDecorator | function (Container, Object),
+    content: Function,
     /**
      * Will the provider have a single instance
      */
