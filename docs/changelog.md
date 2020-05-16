@@ -4,6 +4,15 @@ Haluka and its other first-party packages, including Box, follow [Semantic Versi
 
 ## Changelog
 
+## Version 1.1.0
+
+Released 2020-05-14
+
+- Add method overloading for register
+- Add singleton method
+- Add injection into Functions
+- Fixed non-injection of instances saved via save()
+
 ## Version 1.0.2
 
 Released 2020-05-11
