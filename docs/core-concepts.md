@@ -46,13 +46,13 @@ box.register(BindingOptions)
 `BindingOptions` is an object that contains the binding options for a registration. It should have the following properties:
 *   **provider** : It contains the name of the component to be registered. It can be `string` or `object`.
     *   **name** : Name of the provider
-    *   **alias** : Any alias to be set for the provider. (For more about alias, see [Aliasing](/box/docs/other-concepts#aliasing) section.)
+    *   **alias** : Any alias to be set for the provider. (For more about alias, see [Aliasing](/box/docs/core-concepts#aliasing) section.)
 
 *   **content** : It is the content that is to be registered within the provider. It may be a `Function` or a `Class`.
 
 *   **singleton** : *(Optional)* It specifies whether the instance will persist the instance when first resolved and returns the same instance on subsequent resolutions. It takes a `boolean`. Default is `false`.
 
-*   **opts** : *(Optional)* It is the default resolution options. (For more about opts, see [Injections from Binding Options](/box/docs/other-concepts#injectionfrombindingoptions) part.)
+*   **opts** : *(Optional)* It is the default resolution options. (For more about opts, see [Injections from Binding Options](/box/docs/core-concepts#injectionfrombindingoptions) part.)
 
 
 
@@ -186,7 +186,7 @@ Below is the summary of priority on which injection is done :
 *   2) Auto-injection from Container
 *   3) From BindingOptions
 
-When the dependency cannot be injected from any of the above, finally the `InjectionError` is thrown.
+When the dependency cannot be injected from any of the above, finally the `UnboundInjectionError` is thrown.
 
 ## Aliasing
 
