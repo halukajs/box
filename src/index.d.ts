@@ -95,11 +95,11 @@ export declare interface IBindingOptions {
     /**
      * Will the provider have a single instance
      */
-    singleton: boolean,
+    singleton?: boolean,
     /**
      * Resolution options to pass during resolution
      */
-    opts: Object
+    opts?: Object
 
 }
 
