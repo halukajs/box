@@ -1,6 +1,6 @@
 {
   "name": "@haluka/box",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A very lightweight dependency injector and container.",
   "main": "./src/index.js",
   "repository": {
