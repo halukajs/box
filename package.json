@@ -35,6 +35,6 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "jest": "^26.0.1"
+    "jest": "^27.3.1"
   }
 }
