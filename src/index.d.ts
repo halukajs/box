@@ -19,7 +19,7 @@ export declare class Container {
      * @param content Content to be registered for the provider
      * @param singleton Whether to register the provider as singleton
      */
-    public register (provider: string, content: Function, singleton: Boolean)
+    public register (provider: string, content: Function, singleton: Boolean): void
 
     /**
      * @alias register()
@@ -29,14 +29,20 @@ export declare class Container {
     /**
      * @alias register()
      */
-    public bind (provider: string, content: Function,  singleton: Boolean)
+    public bind (provider: string, content: Function,  singleton: Boolean): void
+
+    /**
+     * Registers the provider as singleton
+     * @param opts Binding options for the provider
+     */
+    public singleton (opts: IBindingOptions): void
 
     /**
      * Registers the provider as singleton
      * @param provider Provider which is to be registered
      * @param content Content to be registered for the provider
      */
-    public singleton (provider: string, content: Function)
+    public singleton (provider: string, content: Function): void
 
     /**
      * Returns whether the provider is already registered
@@ -62,17 +68,17 @@ export declare class Container {
      * @param name Name to be resolved. Can be a provider or an alias
      * @param opts Optional. Options to be passed to the content during resolution
      */
-    public resolve<T> (name: string, opts: Object = {}): T
+    public resolve<T> (name: string, opts?: Object): T
 
     /**
      * @alias resolve()
      */
-    public get<T> (name: string, opts: Object = {}): T
+    public get<T> (name: string, opts?: Object): T
 
     /**
      * @alias resolve()
      */
-    public use<T> (name: string, opts: Object = {}): T
+    public use<T> (name: string, opts?: Object): T
 
 }
 

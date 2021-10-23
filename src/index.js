@@ -48,8 +48,13 @@ class Container {
 		return this.register(...arguments)
 	}
 
-	singleton (provider, content) {
-		return this.register(provider, content, true)
+	singleton (opts) {
+		if (arguments.length > 1) {
+			arguments[2] = true
+		} else {
+			arguments[0].singleton = true
+		}
+		this.register(...arguments)
 	}
 
 	registered (name) {
@@ -70,7 +75,7 @@ class Container {
 
 		if (this.saved(provider))
 			return this._instances.get(provider)
-
+		
 		provider = this._providers.get(provider)
 		if (!provider) throw new BindingResolutionError(name)
 
