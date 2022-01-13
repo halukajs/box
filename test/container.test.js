@@ -143,10 +143,43 @@ describe('Container', () => {
 	})
 
 	test('registers provider as singleton', () => {
+
 		const c = new Container()
 
-		c.singleton('single', class { })
+		const TestClass = class {
+			constructor ({ namaewa, someargs }) {
+				this.value = namaewa + someargs
+			}
+		}
 
-		c.single
+		c.singleton({
+			provider: 'test',
+			content: TestClass,
+			opts: {
+				someargs: "ula",
+				namaewa: "mula",
+			}
+		})
+
+		expect(c.test.value).toBe('mulaula')
+
+		c.save('namewa', "Singler")
+
+		let t1 = c.test
+		let t2 = c.test
+
+		expect(t1.value).toBe('mulaula')
+		expect(t2.value).toBe('mulaula')
+
+		expect(t1).toBe(t2)
+		expect(t1).toEqual(t2)
+
+		// now chage one instance
+
+		t1.value = 'akiula'
+
+		expect(t2.value).toBe('akiula')
+		expect(t1).toEqual(t2)
+
 	})
 })
