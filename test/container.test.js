@@ -182,4 +182,32 @@ describe('Container', () => {
 		expect(t1).toEqual(t2)
 
 	})
+
+
+	test('registers provider as singleton with provider and content', () => {
+
+		const c = new Container()
+
+		const TestClass = class {
+			constructor () {
+				this.value = "akio"
+			}
+		}
+
+		c.singleton('single', TestClass)
+
+		expect(c.single.value).toBe('akio')
+
+		c.save()
+
+		let t1 = c.single
+		let t2 = c.single
+
+		expect(t1.value).toBe('akio')
+		expect(t2.value).toBe('akio')
+
+		expect(t1).toBe(t2)
+		expect(t1).toEqual(t2)
+
+	})
 })
