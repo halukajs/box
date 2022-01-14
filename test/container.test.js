@@ -198,8 +198,6 @@ describe('Container', () => {
 
 		expect(c.single.value).toBe('akio')
 
-		c.save()
-
 		let t1 = c.single
 		let t2 = c.single
 
