@@ -4,6 +4,12 @@ Haluka and its other first-party packages, including Box, follow [Semantic Versi
 
 ## Changelog
 
+## Version 1.2.2
+
+Released 2022-01-14
+
+- Fixed singleton not behaving properly (#3)
+
 ## Version 1.1.0
 
 Released 2020-05-14
