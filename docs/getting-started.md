@@ -32,7 +32,7 @@ From jsDelivr:
 
 The concept behind using containers is to store and assemble components into a cohesive application. So, the state of your components are stored in the container.
 
-The components are resistered and resolved in a Container object. The dependencies of the component, if already registered, gets injected automatically. For injection to work, there shall be single parameter in the constructor or, constructor parameters shall be destructured.
+The components are [registered](https://haluka.dev/box/docs/core-concepts#registration) and [resolved](https://haluka.dev/box/docs/core-concepts#resolution) in a Container object. The dependencies of the component, if already registered, gets injected automatically. For injection to work, there shall be single parameter in the constructor or, constructor parameters shall be destructured.
 
 That's it.
 
