@@ -43,5 +43,5 @@ Crafted with ❤️ by [Robin Panta](https://github.com/hacktivistic).
 [downloads]: https://img.shields.io/npm/dt/@haluka/box.svg
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg?style=badge
 [license-link]: https://opensource.org/licenses/MIT
-[ci-image]: https://circleci.com/gh/halukajs/haluka-cli.svg?style=svg&circle-token=856f68b7734beb7a7ae1428a1fe6adabef339bbc
+[ci-image]: https://circleci.com/gh/halukajs/box.svg?style=svg
 [ci-link]: https://circleci.com/gh/halukajs/box
