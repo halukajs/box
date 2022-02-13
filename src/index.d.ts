@@ -55,7 +55,7 @@ export declare class Container {
      * @param provider Provider on which instance is to be stored
      * @param instance The instance to be stored
      */
-    public save (provider: IProvider, instance: any): void
+    public save (provider: IProvider | string, instance: any): void
 
     /**
      * Returns whether the provider is already saved
