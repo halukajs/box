@@ -2,8 +2,6 @@
 
 /**
  * @name @haluka/box
- * @author Robin Panta
- * @copyright Robin Panta
  * @license MIT
  */
 
